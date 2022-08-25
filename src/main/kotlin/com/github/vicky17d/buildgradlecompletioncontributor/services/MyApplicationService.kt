@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.vicky17d.buildgradlecompletioncontributor.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.vicky17d.buildgradlecompletioncontributor.MyBundle
 
 class MyApplicationService {
 
