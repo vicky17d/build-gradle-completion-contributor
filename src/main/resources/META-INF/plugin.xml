@@ -1,18 +1,19 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.vicky17d.buildgradlecompletioncontributor</id>
-    <name>build-gradle-completion-contributor</name>
-    <vendor>vicky17d</vendor>
+    <id>org.jetbrains.plugins.template</id>
+    <name>Template</name>
+    <vendor>JetBrains</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.intellij.groovy</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.vicky17d.buildgradlecompletioncontributor.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.vicky17d.buildgradlecompletioncontributor.services.MyProjectService"/>
+    </extensions>
+    <extensions defaultExtensionNs="org.intellij.groovy">
+        <membersContributor implementation="org.vickyd.demo.CustomCodeContributor"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.vicky17d.buildgradlecompletioncontributor.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+
     </applicationListeners>
 </idea-plugin>
