@@ -10,7 +10,7 @@
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
     <extensions defaultExtensionNs="org.intellij.groovy">
-        <membersContributor implementation="org.vickyd.demo.CustomCodeContributor"/>
+        <membersContributor implementation="org.vickyd.demo.CustomCodeContributor" order="first"/>
     </extensions>
 
     <applicationListeners>
