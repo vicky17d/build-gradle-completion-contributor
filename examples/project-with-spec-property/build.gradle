@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+/*
+~~Summary~~
+When GreetingPlugin is applied
+spec.^ gives the code completion options -> foo, bar, baz (coming from the code completionContributor)
+
+GreetingPlugin applied
+spec.^ provides code completion for HashMap type i.e. the type of spec (as provided when setting the property)
+and ignores the code completion from the completionContributor
+ */
+
+// Plugin to add 'spec' property
+class GreetingPlugin implements Plugin<Project> {
+  void apply(Project project) {
+    ExtraPropertiesExtension ext = project.getExtensions().getExtraProperties();
+    ext.set("spec", new HashMap<String, String>());
+  }
+}
+
+// Comment/Uncomment and Reload Gradle project to see difference in code-completion options for spec.^
+//apply plugin: GreetingPlugin
+
+//spec.^
+
+
+
+
+
+
+
+
+
+
+
+

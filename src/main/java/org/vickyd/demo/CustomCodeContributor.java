@@ -23,10 +23,10 @@ public class CustomCodeContributor extends NonCodeMembersContributor {
 
     NameHint nameHint = processor.getHint(NameHint.KEY);
     String nameHintValue = nameHint != null ? nameHint.getName(state) : null;
-    if (nameHintValue == null) {
-      LightFieldBuilder someInt = new LightFieldBuilder("someInt", Integer.class.getName(), aClass);
-      processor.execute(someInt, state);
-    }
+//    if (nameHintValue == null) {
+//      LightFieldBuilder someInt = new LightFieldBuilder("alwaysPresent", Integer.class.getName(), aClass);
+//      processor.execute(someInt, state);
+//    }
     if ("spec".equals(nameHintValue)) {
       LightFieldBuilder someInt = new LightFieldBuilder("spec", createMyType(place), aClass);
       processor.execute(someInt, state);
@@ -37,9 +37,10 @@ public class CustomCodeContributor extends NonCodeMembersContributor {
     PsiElementFactory elementFactory = JavaPsiFacade.getElementFactory(context.getProject());
     PsiType type = JavaPsiFacade.getElementFactory(context.getProject())
         .createTypeFromText(CommonClassNames.JAVA_LANG_STRING, context);
-    LightPsiClassBuilder myClass = new LightMyClassBuilder("MyName", context,
-        new LightFieldBuilder(PsiManager.getInstance(context.getProject()), "name123", type),
-        new LightFieldBuilder(PsiManager.getInstance(context.getProject()), "version123", type));
+    LightPsiClassBuilder myClass = new LightMyClassBuilder("SPEC", context,
+        new LightFieldBuilder(PsiManager.getInstance(context.getProject()), "foo", type),
+        new LightFieldBuilder(PsiManager.getInstance(context.getProject()), "bar", type),
+        new LightFieldBuilder(PsiManager.getInstance(context.getProject()), "baz", type));
     return elementFactory.createType(myClass);
   }
 
