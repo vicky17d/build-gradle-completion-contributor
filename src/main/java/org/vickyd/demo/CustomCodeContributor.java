@@ -27,6 +27,12 @@ public class CustomCodeContributor extends NonCodeMembersContributor {
 //      LightFieldBuilder someInt = new LightFieldBuilder("alwaysPresent", Integer.class.getName(), aClass);
 //      processor.execute(someInt, state);
 //    }
+
+    if ("hello".equals(nameHintValue)) {
+      LightFieldBuilder someInt = new LightFieldBuilder("hello", createMyType(place), aClass);
+      processor.execute(someInt, state);
+    }
+
     if ("spec".equals(nameHintValue)) {
       LightFieldBuilder someInt = new LightFieldBuilder("spec", createMyType(place), aClass);
       processor.execute(someInt, state);
@@ -37,7 +43,7 @@ public class CustomCodeContributor extends NonCodeMembersContributor {
     PsiElementFactory elementFactory = JavaPsiFacade.getElementFactory(context.getProject());
     PsiType type = JavaPsiFacade.getElementFactory(context.getProject())
         .createTypeFromText(CommonClassNames.JAVA_LANG_STRING, context);
-    LightPsiClassBuilder myClass = new LightMyClassBuilder("SPEC", context,
+    LightPsiClassBuilder myClass = new LightMyClassBuilder("myName", context,
         new LightFieldBuilder(PsiManager.getInstance(context.getProject()), "foo", type),
         new LightFieldBuilder(PsiManager.getInstance(context.getProject()), "bar", type),
         new LightFieldBuilder(PsiManager.getInstance(context.getProject()), "baz", type));

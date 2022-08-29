@@ -1,0 +1,28 @@
+plugins {
+    id 'idea'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+// Plugin to add 'spec' property
+class GreetingPlugin implements Plugin<Project> {
+  void apply(Project project) {
+    ExtraPropertiesExtension ext = project.getExtensions().getExtraProperties();
+    ext.set("spec", new HashMap<String, String>());
+  }
+}
+
+apply plugin: GreetingPlugin
+
+// Code-completion even with extra property 'spec' of type HashMap provides the following options -> foo, bar, baz
+//spec.^
+
+
